@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'rspec-rails'
+gem 'bootstrap-rails'
+gem 'bootstrap-sass'
+gem 'thin'
+gem 'haml'
+gem 'haml-rails'
+gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +28,27 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+group :development, :test do
+
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'quiet_assets'
+	gem 'guard'
+	gem 'spork'
+	gem 'guard-spork'
+	gem 'guard-rspec'
+	gem 'fabrication'
+	gem 'ffaker'
+	gem 'shoulda-matchers'
+	gem 'launchy'
+	gem 'simplecov', :require => false
+end
+
+group :production do
+	gem 'pg'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
