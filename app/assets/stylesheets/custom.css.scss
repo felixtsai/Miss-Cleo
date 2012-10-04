@@ -1,0 +1,47 @@
+@import "bootstrap";
+
+.container {
+  width: 1000px;
+  margin-left : auto;
+  margin-right : auto;
+}
+
+body {
+  padding-top: 60px;
+}
+
+#error_explanation {
+  padding-top: 5px;
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.span9 {
+  margin-left: 50px
+}
+
+
+.label a {
+  color: white;
+  text-decoration: none;
+  &:visited {
+    color: #FFF;
+  }
+}
+
+.btn-group {
+  display:inline-block;
+}
+
+#person_table {
+  height: 30px;
+  width: 400px;
+  text-align: left;
+}
+
+#person_button {
+  margin: 0px;
+}
