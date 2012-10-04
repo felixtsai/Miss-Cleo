@@ -16,13 +16,13 @@
       %td= person.sex
       %td
         .span.label.label-success
-          = link_to 'Show', person
+          = link_to 'View', person
       %td
         .span.label.label-info
           = link_to 'Edit', edit_person_path(person)
       %td
         .span.label.label-important
-          = link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
