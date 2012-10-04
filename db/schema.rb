@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004010616) do
+ActiveRecord::Schema.define(:version => 20121004215154) do
+
+  create_table "guesses", :force => true do |t|
+    t.integer  "total_male_height"
+    t.integer  "total_male_weight"
+    t.integer  "total_female_height"
+    t.integer  "total_female_weight"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "people", :force => true do |t|
     t.string   "name"

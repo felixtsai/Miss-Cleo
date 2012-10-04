@@ -1,7 +1,10 @@
 MissCleo::Application.routes.draw do
+ 
+
   root to: 'people#index'
 
   resources :people
+  resources :guesses
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
