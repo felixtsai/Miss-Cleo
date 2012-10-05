@@ -1,11 +1,10 @@
 class GuessesController < ApplicationController
   def new
-  	
+  	@guess = Guess.new
   end
 
   def create
-  	@height = params[:height]
-  	@weight = params[:weight]
+	@guess = Guess.create(params[:guess])
   	redirect_to new_guess_path
   end
 

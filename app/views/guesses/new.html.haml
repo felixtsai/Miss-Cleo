@@ -1,11 +1,12 @@
-%h Gender Guess
-
-= form_tag guesses_path do
-	=label_tag 'height (inches)'
-	=text_field_tag 'height'
-
-	=label_tag 'weight (lbs)'
-	=text_field_tag 'weight'
-	
-	= submit_tag 'Save'
-end
+= form_for @guess do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :height
+    = f.number_field :height
+  .field
+    = f.label :weight
+    = f.number_field :weight
+  .actions
+    = f.submit 
