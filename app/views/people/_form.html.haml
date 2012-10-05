@@ -10,13 +10,13 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :height
+    = f.label "Height in Whole Inches"
     = f.number_field :height
   .field
-    = f.label :weight
+    = f.label "Weight in Whole pounds"
     = f.number_field :weight
   .field
     = f.label :sex
-    = f.text_field :sex
+    = f.select :sex, [['Male', "M"], ['Female', "F"]]
   .actions
     = f.submit 'Save'
