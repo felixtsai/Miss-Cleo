@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005020913) do
+ActiveRecord::Schema.define(:version => 20121005220654) do
 
   create_table "guesses", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -32,16 +32,14 @@ ActiveRecord::Schema.define(:version => 20121005020913) do
   end
 
   create_table "population_states", :force => true do |t|
-    t.integer  "total_males"
-    t.integer  "total_females"
-    t.integer  "total_male_height"
-    t.integer  "total_female_height"
-    t.integer  "total_male_weight"
-    t.integer  "total_female_weight"
-    t.float    "variance_height"
-    t.float    "variance_weight"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "total_females",       :default => 0
+    t.integer  "total_males",         :default => 0
+    t.integer  "total_female_height", :default => 0
+    t.integer  "total_male_height",   :default => 0
+    t.integer  "total_female_weight", :default => 0
+    t.integer  "total_male_weight",   :default => 0
   end
 
 end
