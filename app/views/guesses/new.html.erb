@@ -1,12 +1,16 @@
 <h1>Gender Guess</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@guess) do |f| %>
+<%= form_tag guesses_path do %>
+	<%=label_tag 'height (inches)' %>
+	<%=text_field_tag 'height' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+	<%=label_tag 'weight (lbs)' %>
+	<%=text_field_tag 'weight' %>
+	
+	<div><%= submit_tag 'Save' %></div>
+<% end %>
 
+<<<<<<< HEAD
       <%= f.label :height %>
       <%= f.text_field :height %>
 
@@ -19,3 +23,6 @@
     <% end %>
   </div>
 </div>
+=======
+
+>>>>>>> a8bee1229962ed42dd89ca41a343dbf365cee47b
