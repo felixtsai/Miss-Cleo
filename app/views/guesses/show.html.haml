@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @guess.name
+%p
+  %b Height:
+  = @guess.height
+%p
+  %b Weight:
+  = @guess.weight
+%p
+  %b Miss Cleo thinks this person is a:
+  = @pop_state.guess
+  
+
+
+= link_to 'Back', new_guess_path

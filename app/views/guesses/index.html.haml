@@ -1,0 +1,25 @@
+%h3 Miss Cleo's past perdictions
+
+%table.table-striped#guess_table
+  %thead
+    %tr
+      %th Name
+      %th Height
+      %th Weight
+      %th Prediction
+
+  - @guesses.each do |guess|
+    %tr
+      %td= guess.name
+      %td= guess.height
+      %td= guess.weight
+      %td= guess.sex
+      %td
+        .span.label.label-success
+          = link_to 'View', guess
+     
+
+%br
+
+.span.label.label-inverse#person_button
+  = link_to 'New Guess', new_guess_path
