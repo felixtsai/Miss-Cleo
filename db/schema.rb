@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005220654) do
+ActiveRecord::Schema.define(:version => 20121005230040) do
 
   create_table "guesses", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(:version => 20121005220654) do
   end
 
   create_table "population_states", :force => true do |t|
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.integer  "total_females",       :default => 0
-    t.integer  "total_males",         :default => 0
-    t.integer  "total_female_height", :default => 0
-    t.integer  "total_male_height",   :default => 0
-    t.integer  "total_female_weight", :default => 0
-    t.integer  "total_male_weight",   :default => 0
+    t.integer  "total_females",                      :default => 0
+    t.integer  "total_males",                        :default => 0
+    t.integer  "total_female_height", :limit => 255, :default => 0
+    t.integer  "total_male_height",                  :default => 0
+    t.integer  "total_female_weight",                :default => 0
+    t.integer  "total_male_weight",                  :default => 0
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
 end

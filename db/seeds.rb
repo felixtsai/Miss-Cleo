@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# @pop_state = PopulationState.find_or_create_by_id(1)
+PopulationState.find_or_create_by_id(1)
