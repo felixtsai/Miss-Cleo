@@ -2,7 +2,7 @@ class PopulationState < ActiveRecord::Base
   attr_accessible :total_female_height, :total_female_weight, :total_females, :total_male_height, :total_male_weight, :total_males
 
   def pop_data
-    @population_data ||= {:male {total: total_males, height: total_male_height, weight: total_male_weight},
+    @population_data ||= {:male => {total: total_males, height: total_male_height, weight: total_male_weight},
       female: {total: total_females, height: total_female_height, weight: total_female_weight}}
   end
 
@@ -18,14 +18,14 @@ class PopulationState < ActiveRecord::Base
     attribute_collection = []
     Person.all.each do |person|
      if person.sex == gender.to_s
-      attribute_collection << person.send(:attribute)
+      attribute_collection << person.send(attribute)
      end
     end
     (1/(pop_data[gender][:total] - 1).to_f)* attribute_collection.inject(0) {|sum, attrib| sum + (attrib - mean(gender, attribute))**2}
   end
 
   def attr_prob(gender, attribute)
-    (1/Math.sqrt(2*Math::PI*variance(gender, attribute)))**((-(6-mean(gender, attribute))**2)/2*variance(gender, attribute))
+    (1/Math.sqrt(2*Math::PI*variance(gender, attribute)**2))**((-(6-mean(gender, attribute))**2)/2*variance(gender, attribute))
   end
 
  

@@ -10,8 +10,8 @@ class Person < ActiveRecord::Base
 
   def population_add
   	pop_state = PopulationState.first
-  	if self.sex == "M"
-  		pop_state.total_males += 1
+  	if self.sex == "male"
+  	  pop_state.total_males += 1
       pop_state.total_male_height += self.height
       pop_state.total_male_weight += self.weight
     else
@@ -25,19 +25,19 @@ class Person < ActiveRecord::Base
   def population_before_update
       pop_state = PopulationState.first
 
-    if self.sex == "M"
+    if self.sex == "male"
       pop_state.total_male_height -= Person.find(self.id).height
       pop_state.total_male_weight -= Person.find(self.id).weight
     else
       pop_state.total_female_height -= Person.find(self.id).height
-      pop_state.total_female_weight -= Person.find(self.id).height
+      pop_state.total_female_weight -= Person.find(self.id).weight
     end
     pop_state.save
   end
 
   def population_after_update
       pop_state = PopulationState.first
-    if self.sex == "M"
+    if self.sex == "male"
       pop_state.total_male_height += self.height
       pop_state.total_male_weight += self.weight
     else
@@ -49,7 +49,7 @@ class Person < ActiveRecord::Base
 
     def population_destroy
     pop_state = PopulationState.first
-    if self.sex == "M"
+    if self.sex == "male"
       pop_state.total_males -= 1
       pop_state.total_male_height -= self.height
       pop_state.total_male_weight -= self.weight
