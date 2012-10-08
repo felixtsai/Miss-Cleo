@@ -11,7 +11,7 @@
   - @people.each do |person|
     %tr
       %td= person.name
-      %td= person.height
+      %td= person.height.round(2)
       %td= person.weight
       %td= person.sex
       %td

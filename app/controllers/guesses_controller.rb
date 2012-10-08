@@ -9,7 +9,9 @@ class GuessesController < ApplicationController
   end
 
   def create
-	@guess = Guess.create(params[:guess])
+	@guess = Guess.new(params[:guess])
+  @guess.height = @guess.height/12.0
+  @guess.save
   	redirect_to @guess
   end
 

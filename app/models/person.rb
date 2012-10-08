@@ -1,7 +1,6 @@
 class Person < ActiveRecord::Base
   attr_accessible :height, :name, :sex, :weight
 
-  validates :height, :numericality => { :only_integer => true }
   validates :weight, :numericality => { :only_integer => true }
   after_create :population_add
   before_update :population_before_update

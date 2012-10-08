@@ -7,7 +7,6 @@ class PopulationState < ActiveRecord::Base
   end
 
   def mean(gender, attribute)
-    attribute == :height ? pop_data[gender][attribute]/pop_data[gender][:total].to_f/12.0 :
     pop_data[gender][attribute]/pop_data[gender][:total].to_f
   end
 
@@ -17,28 +16,16 @@ class PopulationState < ActiveRecord::Base
 
   def variance(gender, attribute)
     attribute_collection = []
-    if attribute == :height
-      Person.all.each do |person|
-       if person.sex == gender.to_s
-        attribute_collection << person.send(attribute)/12.0
-       end #end if
-      end #end each
-    else
-      Person.all.each do |person|
-       if person.sex == gender.to_s
-        attribute_collection << person.send(attribute)
-       end #end if
-      end #end each
-    end
+    Person.all.each do |person|
+     if person.sex == gender.to_s
+      attribute_collection << person.send(attribute)
+     end #end if
+    end #end each
     (1/(pop_data[gender][:total] - 1).to_f)* attribute_collection.inject(0) {|sum, attrib| sum + (attrib - mean(gender, attribute))**2}
   end #end variance
 
   def attr_prob(gender, attribute, guess_attribute)
-    if attribute == :height 
-      (1/Math.sqrt(2*Math::PI*variance(gender, attribute))) * Math.exp((-(guess_attribute/12.0 - mean(gender, attribute))**2)/(2*variance(gender, attribute)))
-    else
-     (1/Math.sqrt(2*Math::PI*variance(gender, attribute))) * Math.exp((-(guess_attribute - mean(gender, attribute))**2)/(2*variance(gender, attribute)))
-    end
+   (1/Math.sqrt(2*Math::PI*variance(gender, attribute))) * Math.exp((-(guess_attribute - mean(gender, attribute))**2)/(2*variance(gender, attribute)))
   end
 
  
@@ -58,7 +45,5 @@ class PopulationState < ActiveRecord::Base
       "Androgynous. Flip a coin."
     end
   end   
-
-
 
 end

@@ -41,6 +41,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
+    @person.height = @person.height/12.0
 
     respond_to do |format|
       if @person.save
