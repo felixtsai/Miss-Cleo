@@ -1,12 +1,10 @@
 = form_for @guess do |f|
-  .field
-    = f.label :name
-    = f.text_field :name
+
   .field
     = f.label "Height in Whole Inches"
     = f.number_field :height
   .field
     = f.label "Weight in Whole pounds"
     = f.number_field :weight
-  .actions
-    = f.submit 'Have Miss Cleo Guess a Gender'
+  .action
+    = f.submit 'Guess a gender, mon'
